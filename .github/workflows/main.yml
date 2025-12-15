@@ -1,0 +1,22 @@
+# Este es un flujo de trabajo básico para ayudarte a comenzar con Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    # Tipo de runner donde se ejecutará el trabajo
+    runs-on: ubuntu-latest
+
+    # Los pasos representan una secuencia de tareas que se ejecutarán como parte del trabajo
+    steps:
+    # Realiza el checkout de tu repositorio en $GITHUB_WORKSPACE para que tu trabajo pueda acceder a él
+    - uses: actions/checkout@v2
+
+    - name: Ejecutar comando make
+      run: make hello
